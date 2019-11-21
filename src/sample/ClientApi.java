@@ -1,12 +1,9 @@
 package sample;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
+import model.QueueStatus;
+import model.RunePage;
 import org.apache.http.HttpHeaders;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -22,12 +19,10 @@ import java.io.InputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -68,7 +63,7 @@ public class ClientApi {
         connected.set(true);
     }
 
-    // need to be fixed later
+    // maybe will remove in the future
     public void getCurrentChamp(){
         try{
             HttpGet httpGet = new HttpGet();
@@ -81,6 +76,7 @@ public class ClientApi {
         }
     }
 
+    // maybe will remove in the future
     public void autoAccept(){
         int code = 0;
         int times = 0;

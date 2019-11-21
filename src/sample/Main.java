@@ -6,16 +6,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        JFrame frame = new JFrame("Rune Changer Version - 1.0");
+        frame.setContentPane(new MainGUI().getPanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(400, 250);
+        frame.setIconImage(ImageIO.read(getClass().getResource("icon.jpg")));
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
 
@@ -36,9 +44,6 @@ public class Main extends Application {
                     5008,
                     5001
             };
-            api.changeRunePage("crystal test", 8000, perks,8200);
-            //api.getCurrentChamp();
-            //api.autoAccept();
             launch(args);
         }
     }
